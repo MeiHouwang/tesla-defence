@@ -1,0 +1,118 @@
+[gd_scene load_steps=13 format=1]
+
+[ext_resource path="res://game/gen.gd" type="Script" id=1]
+[ext_resource path="res://graphics/td_gen1.png" type="Texture" id=2]
+[ext_resource path="res://graphics/td_gen2.png" type="Texture" id=3]
+[ext_resource path="res://graphics/td_gendamage_01.png" type="Texture" id=4]
+[ext_resource path="res://graphics/td_gendamage_02.png" type="Texture" id=5]
+[ext_resource path="res://graphics/td_gendamage_03.png" type="Texture" id=6]
+[ext_resource path="res://graphics/td_gendamage_04.png" type="Texture" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 52.6493, 18.3785 )
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.6149, 23.0616 )
+
+[sub_resource type="SpriteFrames" id=5]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[node name="gen" type="StaticBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.205322, 22.6158 )
+shapes/0/trigger = false
+collision/layers = 7
+collision/mask = 7
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+hp = 10.0
+max_hp = 10.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+
+transform/scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 4 )
+animation = "default"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -0.205322, 22.6158 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="charger" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -1, 49 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="charger"]
+
+transform/pos = Vector2( -1, 49 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="d1" type="AnimatedSprite" parent="."]
+
+visibility/opacity = 0.0
+transform/scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+animation = "default"
+frame = 1
+playing = true
+
+[node name="d2" type="AnimatedSprite" parent="."]
+
+visibility/opacity = 0.0
+transform/scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 6 )
+animation = "default"
+frame = 1
+playing = true
+
+[node name="c" type="Position2D" parent="."]
+
+transform/pos = Vector2( -19.3656, -36.9707 )
+
+

@@ -1,0 +1,149 @@
+[gd_scene load_steps=12 format=1]
+
+[ext_resource path="res://game/level.gd" type="Script" id=1]
+[ext_resource path="res://game/tileset.xml" type="TileSet" id=2]
+[ext_resource path="res://graphics/td_ground1.png" type="Texture" id=3]
+[ext_resource path="res://graphics/td_ground2.png" type="Texture" id=4]
+[ext_resource path="res://junk.gd" type="Script" id=5]
+[ext_resource path="res://game/tileset2.xml" type="TileSet" id=6]
+[ext_resource path="res://game/gen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://graphics/td_teslacharger.png" type="Texture" id=8]
+[ext_resource path="res://game/towerA.tscn" type="PackedScene" id=9]
+[ext_resource path="res://game/towerB.tscn" type="PackedScene" id=10]
+[ext_resource path="res://game/towerC.tscn" type="PackedScene" id=11]
+
+[node name="level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="ground" type="TileMap" parent="."]
+
+visibility/visible = false
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 65536, 0, 65537, 0, 65538, 0, 65539, 0, 65540, 0, 65541, 0, 65542, 0, 65543, 0, 65544, 0, 65545, 0, 65546, 0, 65547, 0, 65548, 0, 65549, 0, 65550, 0, 65551, 0, 65552, 0, 65553, 0, 65554, 0, 131072, 0, 131073, 0, 131074, 0, 131075, 0, 131076, 0, 131077, 0, 131078, 0, 131079, 0, 131080, 0, 131081, 0, 131082, 0, 131083, 0, 131084, 0, 131085, 0, 131086, 0, 131087, 0, 131088, 0, 131089, 0, 131090, 0, 196608, 0, 196609, 0, 196610, 0, 196611, 0, 196612, 0, 196613, 0, 196614, 0, 196615, 0, 196616, 0, 196617, 0, 196618, 0, 196619, 0, 196620, 0, 196621, 0, 196622, 0, 196623, 0, 196624, 0, 196625, 0, 196626, 0, 262144, 0, 262145, 0, 262146, 0, 262147, 0, 262148, 0, 262149, 0, 262150, 0, 262151, 0, 262152, 0, 262153, 0, 262154, 0, 262155, 0, 262156, 0, 262157, 0, 262158, 0, 262159, 0, 262160, 0, 262161, 0, 262162, 0, 327680, 0, 327681, 0, 327682, 0, 327683, 0, 327684, 0, 327685, 0, 327686, 0, 327687, 0, 327688, 0, 327689, 0, 327690, 0, 327691, 0, 327692, 0, 327693, 0, 327694, 0, 327695, 0, 327696, 0, 327697, 0, 327698, 0, 393216, 0, 393217, 0, 393218, 0, 393219, 0, 393220, 0, 393221, 0, 393222, 0, 393223, 0, 393224, 0, 393225, 0, 393226, 0, 393227, 0, 393228, 0, 393229, 0, 393230, 0, 393231, 0, 393232, 0, 393233, 0, 393234, 0, 458752, 0, 458753, 0, 458754, 0, 458755, 0, 458756, 0, 458757, 0, 458758, 0, 458759, 0, 458760, 0, 458761, 0, 458762, 0, 458763, 0, 458764, 0, 458765, 0, 458766, 0, 458767, 0, 458768, 0, 458769, 0, 458770, 0, 524288, 0, 524289, 0, 524290, 0, 524291, 0, 524292, 0, 524293, 0, 524294, 0, 524295, 0, 524296, 0, 524297, 0, 524298, 0, 524299, 0, 524300, 0, 524301, 0, 524302, 0, 524303, 0, 524304, 0, 524305, 0, 524306, 0, 589824, 0, 589825, 0, 589826, 0, 589827, 0, 589828, 0, 589829, 0, 589830, 0, 589831, 0, 589832, 0, 589833, 0, 589834, 0, 589835, 0, 589836, 0, 589837, 0, 589838, 0, 589839, 0, 589840, 0, 589841, 0, 589842, 0, 655360, 0, 655361, 0, 655362, 0, 655363, 0, 655364, 0, 655365, 0, 655366, 0, 655367, 0, 655368, 0, 655369, 0, 655370, 0, 655371, 0, 655372, 0, 655373, 0, 655374, 0, 655375, 0, 655376, 0, 655377, 0, 655378, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 2400, 1400 )
+
+[node name="Sprite1" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 2400, 256 )
+
+[node name="junk" type="Node2D" parent="."]
+
+script/script = ExtResource( 5 )
+
+[node name="back" type="TileMap" parent="."]
+
+visibility/visible = false
+transform/scale = Vector2( 0.5, 0.5 )
+mode = 0
+tile_set = ExtResource( 6 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -65526, 2, -65508, 2, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 27, 0 )
+
+[node name="char_place" type="YSort" parent="."]
+
+sort/enabled = true
+
+[node name="gen" parent="char_place" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 626.21, 95.8704 )
+
+[node name="Node2D" type="Node2D" parent="char_place"]
+
+transform/pos = Vector2( 362.236, 256.222 )
+
+[node name="Sprite" type="Sprite" parent="char_place/Node2D"]
+
+transform/pos = Vector2( -138.907, -193.048 )
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Node2D1" type="Node2D" parent="char_place"]
+
+transform/pos = Vector2( 852.603, 252.623 )
+
+[node name="Sprite" type="Sprite" parent="char_place/Node2D1"]
+
+transform/pos = Vector2( 138.907, -194.844 )
+transform/scale = Vector2( -0.5, 0.5 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="front" type="TileMap" parent="."]
+
+transform/scale = Vector2( 0.5, 0.5 )
+mode = 0
+tile_set = ExtResource( 6 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = true
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 7
+collision/mask = 7
+occluder/light_mask = 1
+tile_data = IntArray( 65546, 1, 65563, 1, 131082, 1, 131099, 1, 196618, 1, 196635, 1, 262154, 1, 262171, 1, 327690, 1, 327707, 1, 393226, 1, 393243, 1, 458762, 1, 458779, 1, 524298, 1, 524315, 1, 589834, 1, 589851, 1, 655370, 0, 655371, 0, 655372, 0, 655373, 0, 655374, 0, 655375, 0, 655376, 0, 655377, 0, 655378, 0, 655379, 0, 655380, 0, 655381, 0, 655382, 0, 655383, 0, 655384, 0, 655385, 0, 655386, 0, 655387, 0 )
+
+[node name="towers" type="Node2D" parent="."]
+
+[node name="tower" parent="towers" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 640, 320 )
+
+[node name="tower 2" parent="towers" instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 896, 192 )
+
+[node name="tower 3" parent="towers" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 352, 192 )
+
+[node name="start" type="Position2D" parent="."]
+
+transform/pos = Vector2( 508.865, 247.386 )
+
+[node name="enemies" type="YSort" parent="."]
+
+sort/enabled = true
+
+
